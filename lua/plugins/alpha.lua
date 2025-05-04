@@ -25,6 +25,12 @@ return {
 			[[                                                ]],
 		}
 
+        dashboard.section.buttons.val = {
+            dashboard.button("e", " New File", ":ene <BAR> startinsert <CR>"),
+            dashboard.button("f", " Find File", ":Telescope find_files<CR>"),
+            dashboard.button("q", "󰩈 Quit NeoVim", ":qa!<CR>"),
+        }
+
 		alpha.setup(dashboard.opts)
 	end,
 }
