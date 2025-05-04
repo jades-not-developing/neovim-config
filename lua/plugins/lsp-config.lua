@@ -21,6 +21,7 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		config = function()
+            local capabilities = require('cmp_nvim_lsp').default_capabilities()
 			local lspconfig = require("lspconfig")
 
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
@@ -33,24 +34,28 @@ return {
 			end
 
 			lspconfig.lua_ls.setup({
+                capabilities = capabilities,
 				cmd = { bin_path .. "lua-language-server" },
 				root_dir = function(_)
 					return vim.loop.cwd()
 				end,
 			})
 			lspconfig.zls.setup({
+                capabilities = capabilities,
 				cmd = { bin_path .. "zls" },
 				root_dir = function(_)
 					return vim.loop.cwd()
 				end,
 			})
 			lspconfig.clangd.setup({
+                capabilities = capabilities,
 				cmd = { bin_path .. "clangd" },
 				root_dir = function(_)
 					return vim.loop.cwd()
 				end,
 			})
 			lspconfig.rust_analyzer.setup({
+                capabilities = capabilities,
 				cmd = { bin_path .. "rust-analyzer" },
 				root_dir = function(_)
 					return vim.loop.cwd()
