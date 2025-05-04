@@ -1,5 +1,5 @@
 ----------------------------------
---- Jade's NeoVim config file  ---
+--- Jade's NeoVim config repo  ---
 ---          v0.0.1            ---
 ----------------------------------
 
@@ -31,34 +31,4 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
 -- Setup lazy.nvim
-local plugins = {
-    { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-    {
-        "nvim-telescope/telescope.nvim", tag = '0.1.8',
-        dependencies = { "nvim-lua/plenary.nvim" }
-    },
-    { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
-}
-local opts = {}
-require("lazy").setup(plugins, opts)
-
---- @=====================@
----  Plugins Configuration 
---- @=====================@
-
--- Setup Catppuccin
-require("catppuccin").setup()
-vim.cmd.colorscheme "catppuccin"
-
--- Setup Telescope
-local builtin = require("telescope.builtin")
-vim.keymap.set('n', "<leader>f", builtin.find_files, {  desc = "Telescope find files"})
-vim.keymap.set('n', "<leader>fs", builtin.live_grep, {  desc = "Telescope find files"})
-
--- Setup Treesitter
-local ts_config = require("nvim-treesitter.configs")
-ts_config.setup({
-    ensure_installed = {"lua", "rust", "typescript", "javascript"},
-    highlight = { enable = true },
-    indent = { enable = true },
-})
+require("lazy").setup("plugins")
