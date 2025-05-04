@@ -3,14 +3,6 @@
 ---          v0.0.1            ---
 ----------------------------------
 
--- Basic Settings
-vim.cmd("set expandtab")
-vim.cmd("set tabstop=4")
-vim.cmd("set softtabstop=3")
-vim.cmd("set shiftwidth=4")
-vim.cmd("set relativenumber")
-
--- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = "https://github.com/folke/lazy.nvim.git"
@@ -27,8 +19,6 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
 
--- Setup lazy.nvim
+require("vim-config")
 require("lazy").setup("plugins")
