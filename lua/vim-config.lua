@@ -5,3 +5,5 @@ vim.cmd("set shiftwidth=4")
 vim.cmd("set relativenumber")
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
+
+vim.keymap.set('n', "<leader>h", ":noh<CR>", {})
